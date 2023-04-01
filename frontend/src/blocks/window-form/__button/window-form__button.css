@@ -1,0 +1,14 @@
+.window-form__button {
+  margin-top: 216px;
+  border-radius: 2px;
+  border: none;
+  min-height: 50px;
+  font-size: 18px;
+line-height: 22px;
+cursor: pointer;
+}
+
+.window-form__button:hover{
+  opacity: .85;
+  transition: all .3s linear;
+}

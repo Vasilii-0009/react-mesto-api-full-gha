@@ -1,0 +1,36 @@
+.profile__add {
+  width: 150px;
+  min-height: 50px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: all .3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-image: url(../../../images/Add-btn.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 22px 22px;
+cursor: pointer;
+}
+
+.profile__add:hover {
+  opacity: .6;
+}
+
+@media (max-width:780px) {
+  .profile__add {
+    margin: 36px auto 0 auto;
+    width: 282px;
+  }
+}
+
+@media (max-width:340px) {
+  .profile__add {
+    width: 100%;
+    background-size: 16px 16px;
+  }
+}

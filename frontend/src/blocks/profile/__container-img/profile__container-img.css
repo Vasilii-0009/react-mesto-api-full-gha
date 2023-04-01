@@ -1,0 +1,20 @@
+.profile__container-img {
+  margin-right: 30px;
+  position: relative;
+  
+}
+
+.profile__container-img:hover .profile__img-pencil{
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile__container-img:hover .profile__img {
+    opacity: .2;
+}
+
+@media (max-width:780px) {
+    .profile__container-img  {
+      margin-right: 0px;
+    }
+  }

@@ -1,0 +1,14 @@
+.elements__element {
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  transition: all .3s linear;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.elements__element:hover {
+  opacity: .6;
+}

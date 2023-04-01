@@ -1,0 +1,10 @@
+.popup__form-container {
+  height: 44px;
+  /* margin-bottom: 13px; */
+}
+
+.popup__form-container:first-child {
+  height: 65px;
+  margin-bottom: 0;
+}
+

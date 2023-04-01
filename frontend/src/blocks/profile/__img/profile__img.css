@@ -1,0 +1,10 @@
+.profile__img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  transition: all .3s linear;
+  background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -1,0 +1,7 @@
+@media (max-width: 780px) {
+  .header__logo {
+    display: block;
+    margin: 0 0 0 27px;
+    width: 103.5px;
+   }
+}

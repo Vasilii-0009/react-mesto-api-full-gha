@@ -1,0 +1,4 @@
+.header__name_hover:hover {
+color: #A9A9A9;
+transition: all .3s linear;
+}

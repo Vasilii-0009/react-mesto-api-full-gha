@@ -1,0 +1,15 @@
+.popup-delet__btn {
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+text-align: center;
+color: #FFFFFF;
+width: 100%;
+max-width: 358px;
+min-height: 50px;
+background-color: #000;
+border: 0;
+padding: 0;
+}
+
+

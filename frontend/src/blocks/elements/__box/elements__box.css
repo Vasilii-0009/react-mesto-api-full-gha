@@ -1,0 +1,10 @@
+.elements__box {
+  max-width: 246px;
+  width: 100%;
+  margin: 23px auto 25px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}

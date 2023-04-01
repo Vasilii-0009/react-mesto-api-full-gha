@@ -1,0 +1,18 @@
+.popup-delet__container{
+  background-color: #fff;
+  padding: 34px 36px 37px 36px;
+  max-width: 430px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+@media (max-width:767px){
+  .popup-delet__container {
+    margin: 0 19px;
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+}

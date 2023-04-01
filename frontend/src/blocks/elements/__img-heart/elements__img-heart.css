@@ -1,0 +1,8 @@
+.elements__img-heart {
+  background-image: url(../../../images/Union.svg);
+  
+}
+
+.elements__img-heart:hover {
+  opacity: 1;
+}
