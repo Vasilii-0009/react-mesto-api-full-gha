@@ -31,24 +31,38 @@ class Api {
   }
 
   getTasks() {
+    const token = localStorage.getItem('token');
     const card = fetch(`${this._url}/cards`, {
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }
     })
     return this._checkResponse(card)
   }
 
   getInfoUser() {
-
+    const token = localStorage.getItem('token');
     const infoUSer = fetch(`${this._url}/users/me`, {
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      }
     })
     return this._checkResponse(infoUSer)
   }
 
   saveInfoUser(name, about) {
+    const token = localStorage.getItem('token');
     const saveInfoUser = fetch(`${this._url}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name, about
       })
@@ -57,44 +71,67 @@ class Api {
   }
 
   creatCard(name, link) {
+    const token = localStorage.getItem('token');
     const creatCard = fetch(`${this._url}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({ name, link })
     })
     return this._checkResponse(creatCard)
   }
 
   deleteCard(id) {
-
+    const token = localStorage.getItem('token');
     const deleteCard = fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
     })
     return this._checkResponse(deleteCard)
   }
 
   addLike(id) {
+    const token = localStorage.getItem('token');
     const addLike = fetch(`${this._url}/cards/${id}/likes`, {
       method: 'PUT',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
     })
     return this._checkResponse(addLike)
   }
 
   deleteLike(id) {
-
+    const token = localStorage.getItem('token');
     const addLike = fetch(`${this._url}/cards/${id}/likes`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
     })
     return this._checkResponse(addLike)
   }
 
   updateAvatar(avatar) {
+    const token = localStorage.getItem('token');
     const updateAvatar = fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         avatar,
       })
