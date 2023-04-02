@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 2,
     maxlength: 30,
-    default: 'Жак-ив-кустом',
+    default: 'Жак-ив-кусто',
   },
   about: {
     type: String,
