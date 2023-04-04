@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const optionsCors = require('./middlewares/cors');
+// const optionsCors = require('./middlewares/cors');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -15,7 +15,7 @@ const erro = require('./middlewares/error');
 const { PORT = 3001 } = process.env;
 
 const app = express();
-app.use(cors(optionsCors));
+app.use('*', cors());
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
