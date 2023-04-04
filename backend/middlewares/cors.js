@@ -3,8 +3,6 @@ const allowedCors = [
   'https://bekend-mesto-api.nomoredomains.monster',
   'https://bekend-mesto.nomoredomains.monster',
   'http://bekend-mesto.nomoredomains.monster',
-  'localhost:3001',
-  'localhost:3001',
   'localhost:3000',
   'localhost:3000',
 ];
