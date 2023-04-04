@@ -156,7 +156,7 @@ class AuthApi {
   }
 
   registerUser(email, password) {
-    const registerUser = fetch(`${this.url}/signup`, {
+    const registerUser = fetch(`${this.url}/sign-up`, {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({ email, password })
@@ -165,7 +165,7 @@ class AuthApi {
   }
   // получаем токен пользовтеля
   tokenUser(email, password) {
-    const tokenUser = fetch(`${this.url}/signin`, {
+    const tokenUser = fetch(`${this.url}/sign-in`, {
       method: 'POST',
       headers: this.headers,
 
