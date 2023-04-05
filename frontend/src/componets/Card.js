@@ -9,7 +9,7 @@ function Card(props) {
 
     return id === currentUserContext._id
   });
-  console.log(` ici ${isLiked}`)
+
   const cardLikeButtonClassName = (
     `elements__like ${isLiked && 'elements__img-heart'}`
   );;

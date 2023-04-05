@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
+require('dotenv').config();
 // const optionsCors = require('./middlewares/cors');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -12,7 +13,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { creatUser, login } = require('./controllers/users');
 const erro = require('./middlewares/error');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000 } = process.env.PORT;
 
 const app = express();
 app.use('*', cors());
