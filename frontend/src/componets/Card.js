@@ -3,12 +3,13 @@ import CurrentUserContext from '../contexts/CurrentUserContext'
 function Card(props) {
 
   const currentUserContext = React.useContext(CurrentUserContext);
+
   const isOwn = props.cardInfo.owner === currentUserContext._id;
-  const isLiked = props.cardInfo.likes.some((like) => {
+  const isLiked = props.cardInfo.likes.some((id) => {
 
-    return like._id === currentUserContext._id
+    return id === currentUserContext._id
   });
-
+  console.log(` ici ${isLiked}`)
   const cardLikeButtonClassName = (
     `elements__like ${isLiked && 'elements__img-heart'}`
   );;

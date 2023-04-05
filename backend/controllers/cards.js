@@ -8,10 +8,10 @@ const ValidationError = require('../utils/validation-err');
 function createCard(req, res, next) {
   const { name, link } = req.body;
   const owner = req.user._id;
-  const likes = req.user._id;
   Card.create({
-    name, link, owner, likes,
+    name, link, owner,
   })
+
     .then((card) => res.status(StatusOkCreat).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -23,7 +23,6 @@ function createCard(req, res, next) {
 
 function getCards(req, res, next) {
   Card.find({})
-    .populate(['owner', 'likes'])
     .then((cards) => {
       res.status(StatusOk).send(cards);
     })
@@ -63,7 +62,6 @@ function putCardLikes(req, res, next) {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    .populate('likes')
     .then((putLikes) => {
       if (putLikes !== null) {
         res.status(StatusOk).send(putLikes);

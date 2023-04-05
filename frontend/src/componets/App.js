@@ -87,9 +87,10 @@ function App() {
   // функция добавление и удаление лайка
   function handleCardLike(card) {
 
-    const isLiked = card.likes.some((i) => {
-      return i._id === currentUserContext._id
+    const isLiked = card.likes.some((id) => {
+      return id === currentUserContext._id
     });
+    console.log(` this ${isLiked}`)
     if (isLiked) {
       dataApi.deleteLike(card._id).then((newCard) => {
         setCard((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -136,9 +137,7 @@ function App() {
   }
   //добавление фоторграфии
   function handleAddPlaceSubmit(data) {
-    console.log(data)
     dataApi.creatCard(data.name, data.link).then((newCard) => {
-      console.log(newCard)
       setCard([newCard, ...cardsContext])
     }).catch((err) => {
       console.log(`Карточка не сохранена  (код ошибки): ${err}`)
