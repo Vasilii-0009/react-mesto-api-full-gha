@@ -1,6 +1,6 @@
 const token = localStorage.getItem('token');
 const configApi = {
-  //url: 'http://localhost:3001',
+  // url: 'http://localhost:3001',
   url: "http://bekend-mesto-api.nomoredomains.monster",
   headers: {
     'Accept': 'application/json',
