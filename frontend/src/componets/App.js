@@ -171,9 +171,11 @@ function App() {
   }
   // проверяем токен пользователя для входа на сайт без авторизации 
   useEffect(() => {
-    if (loggedIn) {
+    const jwt = localStorage.getItem('token')
+    if (jwt) {
       tokenCheck()
     }
+
 
   }, [loggedIn])
 
