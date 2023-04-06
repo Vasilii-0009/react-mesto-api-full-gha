@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
-require('dotenv').config();
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 // pr14

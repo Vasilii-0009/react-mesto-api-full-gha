@@ -10,6 +10,8 @@ const UnauthorizedError = require('../utils/unauthorized-err');
 
 const { StatusOk, StatusOkCreat } = require('../utils/statusCode');
 
+const { NODE_ENV, JWT_SECRET } = require('../config');
+
 function getUsers(req, res, next) {
   User.find({})
     .then((users) => res.status(StatusOk).send({ users }))
@@ -92,7 +94,7 @@ function login(req, res, next) {
 
         .then((matched) => {
           if (matched) {
-            const token = jwt.sign({ _id: user._id }, 'dev-secret', { expiresIn: '7d' });
+            const token = jwt.sign({ _id: user._id }, NODE_ENV !== 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
             res.send({ user, token });
           }
           return next(new UnauthorizedError('Неправильные почта или пароль '));
