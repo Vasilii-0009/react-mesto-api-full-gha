@@ -13,23 +13,6 @@ const erro = require('./middlewares/error');
 const { PORT = 3000 } = process.env;
 
 const app = express();
-// const options = {
-//   origin: [
-//     'http://bekend-mesto-api.nomoredomains.monster',
-//     'https://bekend-mesto-api.nomoredomains.monster',
-//     'http://bekend-mesto.nomoredomains.monster',
-//     'https://bekend-mesto.nomoredomains.monster',
-//     'http://localhost:3001',
-//     'https://localhost:3001',
-//     'http://localhost:3000',
-//     'https://localhost:3000',
-//   ],
-//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-//   allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
-//   credentials: true,
-// };
 
 app.use('*', cors());
 
