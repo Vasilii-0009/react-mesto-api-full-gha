@@ -38,6 +38,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/sign-up', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -48,6 +54,11 @@ app.post('/sign-up', celebrate({
   }),
 }), creatUser);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/sign-in', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().min(2).max(30),
