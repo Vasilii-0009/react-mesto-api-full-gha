@@ -22,7 +22,8 @@ function getUser(req, res, next) {
   User.findById(req.user._id)
     .then((user) => {
       if (user !== null) {
-        res.status(StatusOk).send({ data: user });
+        const result = res.status(StatusOk).send({ data: user });
+        return result;
       }
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
@@ -39,7 +40,8 @@ function patchUser(req, res, next) {
   User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
     .then((newUser) => {
       if (newUser) {
-        res.status(StatusOk).send(newUser);
+        const result = res.status(StatusOk).send(newUser);
+        return result;
       }
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
@@ -56,7 +58,8 @@ function patchAvatar(req, res, next) {
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
     .then((newAvatar) => {
       if (newAvatar) {
-        res.status(StatusOk).send(newAvatar);
+        const result = res.status(StatusOk).send(newAvatar);
+        return result;
       }
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
@@ -95,7 +98,7 @@ function login(req, res, next) {
         .then((matched) => {
           if (matched) {
             const token = jwt.sign({ _id: user._id }, NODE_ENV !== 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
-            res.send({ user, token });
+            res.send({ token });
           }
           return next(new UnauthorizedError('Неправильные почта или пароль '));
         });

@@ -4,6 +4,7 @@ const { StatusOk, StatusOkCreat } = require('../utils/statusCode');
 // pr14
 const NotFoundError = require('../utils/not-found-err');
 const ValidationError = require('../utils/validation-err');
+const ForbiddenError = require('../utils/forbidden-err');
 
 function createCard(req, res, next) {
   const { name, link } = req.body;
@@ -11,7 +12,6 @@ function createCard(req, res, next) {
   Card.create({
     name, link, owner,
   })
-
     .then((card) => res.status(StatusOkCreat).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -33,27 +33,44 @@ function deleteCard(req, res, next) {
   Card.findById(req.params.cardId)
     .then((card) => {
       if (card === null || !card) {
-        next(new NotFoundError('Пользователь по указанному _id не найден'));
+        return next(new NotFoundError('Пользователь по указанному _id не найден'));
       }
       const paramsId = req.user._id.toString();
-
       const cardId = card.owner.toString();
 
       if (paramsId === cardId) {
         Card.findByIdAndRemove(req.params.cardId)
           .then((removedCard) => {
-            res.send({ data: removedCard });
+            const result = res.send({ data: removedCard });
+            return result;
           });
       } else {
-        next(new NotFoundError('У вас нет прав для удаления данной карточки'));
+        return next(new ForbiddenError('У вас нет прав для удаления данной карточки'));
       }
+      return (Card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new ValidationError('Переданы некорректные данные при создании пользователя.(то есть некоректный id)'));
+        return next(new ValidationError('Переданы некорректные данные при создании пользователя.(то есть некоректный id)'));
       }
       return next(err);
     });
+  // return next(new NotFoundError('Пользователь по указанному _id не найден'));
+
+  // if (card === null || !card) {
+  //   return next(new NotFoundError('Пользователь по указанному _id не найден'));
+  // }
+  // const paramsId = req.user._id.toString();
+  // const cardId = card.owner.toString();
+
+  // if (paramsId === cardId) {
+  //   Card.findByIdAndRemove(req.params.cardId)
+  //     .then((removedCard) => {
+  //       res.send({ data: removedCard });
+  //     });
+  // } else {
+  //   next(new NotFoundError('У вас нет прав для удаления данной карточки'));
+  // }
 }
 
 function putCardLikes(req, res, next) {
@@ -64,7 +81,8 @@ function putCardLikes(req, res, next) {
   )
     .then((putLikes) => {
       if (putLikes !== null) {
-        res.status(StatusOk).send(putLikes);
+        const result = res.status(StatusOk).send(putLikes);
+        return result;
       }
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
@@ -84,7 +102,8 @@ function putDeleteLikes(req, res, next) {
   )
     .then((deletelikes) => {
       if (deletelikes !== null) {
-        res.status(StatusOk).send(deletelikes);
+        const result = res.status(StatusOk).send(deletelikes);
+        return result;
       }
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
