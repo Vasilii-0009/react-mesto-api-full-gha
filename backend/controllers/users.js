@@ -19,7 +19,7 @@ function getUsers(req, res, next) {
 }
 
 function getUser(req, res, next) {
-  User.findById(req.user._id)
+  User.findById(req.params.userId)
     .then((user) => {
       if (user !== null) {
         const result = res.status(StatusOk).send({ data: user });

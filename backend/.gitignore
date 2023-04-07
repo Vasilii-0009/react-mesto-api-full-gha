@@ -27,5 +27,7 @@ yarn-error.log*
 .env
 
 # .log
+logs
 *.log
+npm-debug.log*
 .log
