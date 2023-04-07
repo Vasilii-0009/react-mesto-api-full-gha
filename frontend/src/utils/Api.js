@@ -11,7 +11,7 @@ const configApi = {
 
 const configAuthApi = {
 
-  // url: "http://localhost:3000",
+  //url: "http://localhost:3000",
   url: "https://bekend-mesto-api.nomoredomains.monster",
   headers: {
     "Content-Type": "application/json",
