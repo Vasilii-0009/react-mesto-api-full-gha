@@ -8,7 +8,7 @@ const ValidationError = require('../utils/validation-err');
 const DublicatError = require('../utils/duplicate-err');
 const UnauthorizedError = require('../utils/unauthorized-err');
 
-const { StatusOk, StatusOkCreat } = require('../utils/statusCode');
+const { StatusOk, StatusOkCreat } = require('../utils/variables');
 
 const { NODE_ENV, JWT_SECRET } = require('../config');
 

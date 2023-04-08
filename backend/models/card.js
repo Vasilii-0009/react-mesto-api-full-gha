@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { RegularForLink } = require('../utils/variables');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -12,7 +13,7 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return (/(https?:\/\/)(w{3}\.)?(((\d{1,3}\.){3}\d{1,3})|((\w-?)))(:\d{2,5})?((\/.+)+)?\/?#?/.test(v));
+        return (RegularForLink.test(v));
       },
       message: 'Не валидная сылка, сылка должна начинатся: "https//"',
     },

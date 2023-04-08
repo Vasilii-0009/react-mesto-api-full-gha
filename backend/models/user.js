@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
+const { RegularForLink } = require('../utils/variables');
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -19,7 +21,7 @@ const userSchema = new mongoose.Schema({
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     validate: {
       validator(v) {
-        return /(https?:\/\/)(w{3}\.)?(((\d{1,3}\.){3}\d{1,3})|((\w-?)+\.))(:\d{2,5})?((\/.+)+)?\/?#?/.test(v);
+        return RegularForLink.test(v);
       },
       message: 'Не валидная сылка, сылка должна начинатся: "https//"',
     },

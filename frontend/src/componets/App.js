@@ -90,7 +90,6 @@ function App() {
     const isLiked = card.likes.some((id) => {
       return id === currentUserContext._id
     });
-    console.log(` this ${isLiked}`)
     if (isLiked) {
       dataApi.deleteLike(card._id).then((newCard) => {
         setCard((state) => state.map((c) => c._id === card._id ? newCard : c));

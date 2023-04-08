@@ -1,5 +1,5 @@
 const Card = require('../models/card');
-const { StatusOk, StatusOkCreat } = require('../utils/statusCode');
+const { StatusOk, StatusOkCreat } = require('../utils/variables');
 
 // pr14
 const NotFoundError = require('../utils/not-found-err');
@@ -55,22 +55,6 @@ function deleteCard(req, res, next) {
       }
       return next(err);
     });
-  // return next(new NotFoundError('Пользователь по указанному _id не найден'));
-
-  // if (card === null || !card) {
-  //   return next(new NotFoundError('Пользователь по указанному _id не найден'));
-  // }
-  // const paramsId = req.user._id.toString();
-  // const cardId = card.owner.toString();
-
-  // if (paramsId === cardId) {
-  //   Card.findByIdAndRemove(req.params.cardId)
-  //     .then((removedCard) => {
-  //       res.send({ data: removedCard });
-  //     });
-  // } else {
-  //   next(new NotFoundError('У вас нет прав для удаления данной карточки'));
-  // }
 }
 
 function putCardLikes(req, res, next) {
