@@ -8,7 +8,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 // pr14
 const erro = require('./middlewares/error');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 const app = express();
 
